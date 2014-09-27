@@ -26,7 +26,7 @@ int main()
     //harmonic oscillator potential V
     double pot_e=0;
     
-    //terms used to calculate the tridiagonal values for matrix A
+    //terms used to calculate the tridiagonal values for matrix A. Also initialize the terms for the potential
     double ei;
     double dh;
     double di;
