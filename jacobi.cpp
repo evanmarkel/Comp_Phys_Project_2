@@ -200,7 +200,7 @@ int main()
         u_2(i) = u_2(i)*u_2(i);
     }
     
-    //normalize probability distribution function to 1
+    //normalize probability distribution function to 1. Or should it be normalized to 2\rho_max??? from Schrodinger equation, Psi should be normalized by sqrt(2/L)
     vec u_0norm = normalise(u_0,1);
     vec u_1norm = normalise(u_1,1);
     vec u_2norm = normalise(u_2,1);
