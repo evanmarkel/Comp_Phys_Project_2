@@ -193,14 +193,15 @@ int main()
     vec u_1 = eigen.col(min1);
     vec u_2 = eigen.col(min2);
     
-    //square the matrix in order to turn wave equation into probability distribution function
+    //square the matrix in order to turn wave equation into probability distribution function.
+    //constant (h or some variation) that takes oscillator well length into account is omitted as normalization including scale factor-or not-yields same result. 
     for (int i =0; i < n; i++){
         u_0(i) = u_0(i)*u_0(i);
         u_1(i) = u_1(i)*u_1(i);
         u_2(i) = u_2(i)*u_2(i);
     }
     
-    //normalize probability distribution function to 1. Or should it be normalized to 2\rho_max??? from Schrodinger equation, Psi should be normalized by sqrt(2/L)
+    //normalize probability distribution function to 1. Analytically, wave equation for electron in an infinite well should be normalized by sqrt(2/L), L length of well.
     vec u_0norm = normalise(u_0,1);
     vec u_1norm = normalise(u_1,1);
     vec u_2norm = normalise(u_2,1);
