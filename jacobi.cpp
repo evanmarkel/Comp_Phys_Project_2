@@ -10,7 +10,8 @@ using namespace arma;
 
 int main()
 {
-    //i,j indexes the matrix elements we are currently performing the algorithm on (in the for and while loops) and n is the size of our N x N matrix, A. rho_min and rho_max define our step length h. p,q will determine the rotatation element for each iteration of the Jacobi algorithm. Matrix A represents the Schrodinger matrix and matrix eigen represents the matrix containing the eigenstates that will be important for plotting the omega_r dependence in the later sections of the assignment.
+    //  n is the size of our N x N matrix, A. rho_min and rho_max define our step length h. p,q will determine the rotatation element for each iteration of the Jacobi algorithm. Matrix A represents the Schrodinger matrix and matrix eigen represents the matrix containing the eigenstates that will be important for plotting the omega_r dependence in the later sections of the assignment. i,j index the matrix elements we are currently performing the algorithm on (in the for and while loops). p,q are the element index for rotation.
+    int n;
     int p;
     int q;
     double rho_max;
@@ -33,10 +34,10 @@ int main()
     double rho;
     double w_r;
     
-    //set rho min/max values and w_r
+    //set rho min/max values and w_r. manually change w_r from [0.01, 0.5, 1.0, 5.0]
     rho_min = 0.0;
     rho_max = 5.0;
-    w_r = 5.0;
+    w_r = 0.01;
     
     //define matrix A constant terms
     h = (rho_max - rho_min) / (n+1);
@@ -194,7 +195,7 @@ int main()
     vec u_2 = eigen.col(min2);
     
     //square the matrix in order to turn wave equation into probability distribution function.
-    //constant (h or some variation) that takes oscillator well length into account is omitted as normalization including scale factor-or not-yields same result. 
+    //constant (h or some variation) that takes oscillator well length into account is omitted as normalization including scale factor-or not-yields same result.
     for (int i =0; i < n; i++){
         u_0(i) = u_0(i)*u_0(i);
         u_1(i) = u_1(i)*u_1(i);
